@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --neon-pink: #ff0080;
+  --neon-cyan: #00ff80;
+  --noir-dark: #0a0a0a;
+  --noir-medium: #1a1a1a;
+  --noir-light: #2c2c2c;
+  --background: var(--noir-dark);
+  --foreground: #ededed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Arial', sans-serif;
+  --font-mono: 'Courier New', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Neon Noir Custom Styles */
+.neon-text-pink {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.neon-text-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.neon-border-pink {
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 15px rgba(255,0,128,0.5);
+}
+
+.neon-border-cyan {
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0,255,128,0.5);
+}
+
+.venetian-blinds {
+  background: repeating-linear-gradient(
+    0deg, 
+    transparent 0px, 
+    transparent 20px, 
+    rgba(255,0,128,0.1) 20px, 
+    rgba(255,0,128,0.1) 24px
+  );
+}
+
+.cyber-grid {
+  background-image: 
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,0,128,0.1) 2px, rgba(255,0,128,0.1) 4px),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,128,0.1) 2px, rgba(0,255,128,0.1) 4px);
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  animation: scanLine 2s linear infinite;
+}
+
+@keyframes scanLine {
+  0% { transform: translateY(-2px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Terminal Glitch Effects */
+.terminal-container {
+  animation: terminal-glitch 1.5s linear infinite;
+}
+
+@keyframes terminal-glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(2deg);
+  }
+}
+
+/* Neon glow animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor;
+  }
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Terminal box styles */
+.terminal-box {
+  box-shadow: 
+    0 0 20px rgba(0, 255, 128, 0.3),
+    inset 0 0 20px rgba(0, 255, 128, 0.1);
+  position: relative;
+}
+
+.terminal-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-pink));
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0.7;
 }

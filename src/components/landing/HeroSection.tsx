@@ -25,6 +25,10 @@ export default function HeroSection() {
         Your browser does not support the video tag.
       </video>
       
+      {/* Letterbox bars to hide watermark and create widescreen effect */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-black/95 z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-black/95 z-20" />
+      
       {/* Fallback background if video fails */}
       <div className="absolute inset-0 bg-gradient-to-br from-noir-dark via-purple-900/20 to-noir-dark z-0" />
       

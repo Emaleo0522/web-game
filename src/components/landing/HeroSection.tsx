@@ -79,7 +79,7 @@ export default function HeroSection() {
 
         .hero-container {
           position: relative;
-          padding: 50px 0;
+          padding: 50px 0 20px 0;
           text-align: center;
         }
 

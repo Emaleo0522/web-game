@@ -1,9 +1,14 @@
 'use client';
 
 import { useRef } from 'react';
+import CyberCTA from '@/components/ui/CyberCTA';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  const handleCTAClick = () => {
+    console.log('CTA clicked - Protocol activated!');
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -45,6 +50,16 @@ export default function HeroSection() {
           <h2 className="hero glitch layers" data-text="PROTOCOL">
             <span>PROTOCOL</span>
           </h2>
+          
+          {/* Call to Action Button */}
+          <div className="mt-8 mb-6">
+            <CyberCTA 
+              text="ENTER THE PROTOCOL"
+              onClick={handleCTAClick}
+              size="xl"
+              variant="primary"
+            />
+          </div>
         </div>
       </div>
       

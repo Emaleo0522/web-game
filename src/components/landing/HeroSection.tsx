@@ -52,7 +52,7 @@ export default function HeroSection() {
           </h2>
           
           {/* Call to Action Button */}
-          <div className="mt-16 mb-4">
+          <div className="mt-32 mb-2">
             <CyberCTA 
               text="ENTER THE PROTOCOL"
               onClick={handleCTAClick}

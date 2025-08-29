@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   title: "Midnight Protocol",
   description: "Enter the neon-lit cyberpunk world of 2147. A mysterious protocol awaits in the shadows of digital networks.",
   keywords: "cyberpunk, midnight, protocol, noir, game, 2147, neon",
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

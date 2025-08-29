@@ -26,7 +26,7 @@ export default function HeroSection() {
       </video>
       
       {/* Letterbox bars to hide watermark and create widescreen effect */}
-      <div className="absolute top-0 left-0 w-full h-28 bg-black z-20" style={{ transform: 'translateY(8px)' }} />
+      <div className="absolute top-0 left-0 w-full h-32 bg-black z-20" />
       <div className="absolute bottom-0 left-0 w-full h-28 bg-black z-20" />
       
       {/* Fallback background if video fails */}

@@ -262,10 +262,10 @@ export default function GamePage() {
                     <h4 className="text-xl font-orbitron neon-text-cyan mb-4">HELIX.AI BRIEFING:</h4>
                     <div className="bg-noir-light/50 border-l-4 border-neon-cyan p-4 rounded-r">
                       <p className="font-share-tech text-white/80 italic">
-                        "Agent, this is no ordinary heist. Phantom Queen has access to quantum-level encryption 
+                        &quot;Agent, this is no ordinary heist. Phantom Queen has access to quantum-level encryption 
                         breakers that could unravel the digital infrastructure of entire mega-cities. 
-                        Her pattern suggests she's targeting historical data cores next. 
-                        Time is not on our side."
+                        Her pattern suggests she&apos;s targeting historical data cores next. 
+                        Time is not on our side.&quot;
                       </p>
                     </div>
                   </div>

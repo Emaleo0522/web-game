@@ -173,7 +173,7 @@ export default function GameInfoSection() {
               </div>
               <p className="text-white/80 text-sm leading-relaxed">
                 Leader of the Phantom Syndicate. Former AGCD agent who defected after discovering hidden secrets. 
-                Her goal: rewrite digital history and create "the perfect city."
+                Her goal: rewrite digital history and create &quot;the perfect city.&quot;
               </p>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function GameInfoSection() {
                     </div>
                     <p className="text-white/80 leading-relaxed text-base">
                       Follow clues across mega-cities and hidden networks. Each location offers unique 
-                      cultural and digital traces to decode the criminal's next move.
+                      cultural and digital traces to decode the criminal&apos;s next move.
                     </p>
                   </div>
                 </div>
@@ -242,7 +242,7 @@ export default function GameInfoSection() {
                       <h3 className="text-xl font-orbitron font-bold neon-text-cyan">CAPTURE</h3>
                     </div>
                     <p className="text-white/80 leading-relaxed text-base">
-                      Race against time to identify patterns, decode the criminal's methods, 
+                      Race against time to identify patterns, decode the criminal&apos;s methods, 
                       and capture the lieutenant before they escape to another zone.
                     </p>
                   </div>

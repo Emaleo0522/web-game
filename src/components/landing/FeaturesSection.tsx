@@ -130,7 +130,7 @@ export default function FeaturesSection() {
                 READY TO JOIN THE AGCD?
               </h3>
               <p className="text-white/70 font-share-tech mb-6">
-                The Phantom Syndicate won't wait. Every second counts in the fight to preserve digital history.
+                The Phantom Syndicate won&apos;t wait. Every second counts in the fight to preserve digital history.
               </p>
               <div className="flex justify-center">
                 <button 

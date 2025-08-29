@@ -96,7 +96,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       clearInterval(progressInterval);
       clearInterval(spinnerInterval);
     };
-  }, [onLoadComplete]);
+  }, [onLoadComplete, loadingTexts, spinnerFrames.length]);
 
   const renderLoadingBar = () => {
     const loadedCount = Math.floor((progress / 100) * maxCharacters);

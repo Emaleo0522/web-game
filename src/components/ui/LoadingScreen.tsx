@@ -31,7 +31,10 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   const loadedCharacter = "#";
 
   useEffect(() => {
-    let progressValue = 0;
+    const totalDuration = 4000; // 4 segundos total
+    const updateInterval = 50; // Actualizar cada 50ms
+    const totalSteps = totalDuration / updateInterval;
+    let currentStep = 0;
     let currentIndex = 0;
 
     // Spinner animation
@@ -40,21 +43,28 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
     }, 200);
 
     const progressInterval = setInterval(() => {
-      progressValue += Math.random() * 8 + 4; // Incremento más grande y consistente
+      currentStep++;
       
-      const newProgress = Math.min(progressValue, 100);
+      // Calcular progreso con una pequeña variación para que se vea natural
+      let baseProgress = (currentStep / totalSteps) * 100;
+      let randomVariation = (Math.random() - 0.5) * 2; // ±1% de variación
+      let newProgress = Math.min(baseProgress + randomVariation, 100);
+      
       setProgress(newProgress);
 
-      // Update loading text
+      // Update loading text based on progress
       const textIndex = Math.floor((newProgress / 100) * (loadingTexts.length - 1));
       if (textIndex !== currentIndex && textIndex < loadingTexts.length) {
         currentIndex = textIndex;
         setCurrentText(loadingTexts[textIndex]);
       }
 
-      if (newProgress >= 100) {
+      // Cuando llegue al final del tiempo, asegurar 100%
+      if (currentStep >= totalSteps) {
         clearInterval(progressInterval);
         clearInterval(spinnerInterval);
+        
+        setProgress(100);
         
         // Show success message
         setTimeout(() => {
@@ -67,7 +77,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           }, 800);
         }, 300);
       }
-    }, 120); // Intervalo más consistente
+    }, updateInterval);
 
     // Animate scan lines and glitch effects
     const terminal = document.querySelector('.terminal-container');

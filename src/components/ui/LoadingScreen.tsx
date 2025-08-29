@@ -33,25 +33,17 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   useEffect(() => {
     let progressValue = 0;
     let currentIndex = 0;
-    let loadingBar = new Array(maxCharacters).fill(unloadedCharacter);
 
     // Spinner animation
     const spinnerInterval = setInterval(() => {
       setSpinnerFrame(prev => (prev + 1) % spinnerFrames.length);
-    }, 150 + Math.random() * 200);
+    }, 200);
 
     const progressInterval = setInterval(() => {
-      progressValue += Math.random() * 6 + 3;
+      progressValue += Math.random() * 8 + 4; // Incremento más grande y consistente
       
       const newProgress = Math.min(progressValue, 100);
       setProgress(newProgress);
-
-      // Update loading bar
-      const loadedCount = Math.floor((newProgress / 100) * maxCharacters);
-      loadingBar = new Array(maxCharacters).fill(unloadedCharacter);
-      for (let i = 0; i < loadedCount; i++) {
-        loadingBar[i] = loadedCharacter;
-      }
 
       // Update loading text
       const textIndex = Math.floor((newProgress / 100) * (loadingTexts.length - 1));
@@ -72,10 +64,10 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           // Complete loading after success animation
           setTimeout(() => {
             onLoadComplete();
-          }, 1200);
-        }, 500);
+          }, 800);
+        }, 300);
       }
-    }, 100 + Math.random() * 150);
+    }, 120); // Intervalo más consistente
 
     // Animate scan lines and glitch effects
     const terminal = document.querySelector('.terminal-container');

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import HeroSection from '@/components/landing/HeroSection';
+import BlankSection from '@/components/landing/BlankSection';
+import CyberNavbar from '@/components/ui/CyberNavbar';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 
 export default function Home() {
@@ -16,8 +18,14 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-noir-dark">
-      <HeroSection />
-    </div>
+    <>
+      <CyberNavbar />
+      <div className="min-h-screen bg-noir-dark">
+        <section id="home">
+          <HeroSection />
+        </section>
+        <BlankSection />
+      </div>
+    </>
   );
 }

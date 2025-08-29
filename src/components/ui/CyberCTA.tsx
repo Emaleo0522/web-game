@@ -161,7 +161,7 @@ export default function CyberCTA({
     sm: 'px-6 py-2 text-sm',
     md: 'px-8 py-3 text-base',
     lg: 'px-10 py-4 text-lg',
-    xl: 'px-12 py-5 text-xl'
+    xl: 'px-16 py-6 text-xl min-w-[320px]'
   };
 
   const variantClasses = {

@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex justify-center relative overflow-hidden pt-24">
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -79,7 +79,7 @@ export default function HeroSection() {
 
         .hero-container {
           position: relative;
-          padding: 50px 0 20px 0;
+          padding: 20px 0 20px 0;
           text-align: center;
         }
 

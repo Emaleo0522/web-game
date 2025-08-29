@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex justify-center relative overflow-hidden pt-24">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -43,16 +43,18 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="container mx-auto px-8 text-center relative z-30">
         {/* Glitch Title */}
-        <div className="hero-container">
-          <h1 className="hero glitch layers" data-text="MIDNIGHT">
-            <span>MIDNIGHT</span>
-          </h1>
-          <h2 className="hero glitch layers" data-text="PROTOCOL">
-            <span>PROTOCOL</span>
-          </h2>
+        <div className="hero-container flex flex-col items-center">
+          <div className="title-section">
+            <h1 className="hero glitch layers" data-text="MIDNIGHT">
+              <span>MIDNIGHT</span>
+            </h1>
+            <h2 className="hero glitch layers" data-text="PROTOCOL">
+              <span>PROTOCOL</span>
+            </h2>
+          </div>
           
           {/* Call to Action Button */}
-          <div className="mt-32 mb-2">
+          <div className="mt-20">
             <CyberCTA 
               text="ENTER THE PROTOCOL"
               onClick={handleCTAClick}
@@ -79,8 +81,11 @@ export default function HeroSection() {
 
         .hero-container {
           position: relative;
-          padding: 20px 0 20px 0;
           text-align: center;
+        }
+
+        .title-section {
+          margin-bottom: 0;
         }
 
         .layers {

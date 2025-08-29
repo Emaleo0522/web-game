@@ -13,24 +13,24 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [spinnerFrame, setSpinnerFrame] = useState(0);
 
-  const loadingTexts = [
-    'SYSTEM INITIALIZATION...',
-    'LOADING COMPONENTS...',
-    'CONNECTING TO SERVER...',
-    'DOWNLOADING RESOURCES...',
-    'SYNCHRONIZING DATA...',
-    'CALIBRATING INTERFACE...',
-    'ACCESSING DATABASE...',
-    'LOADING ASSETS...',
-    'ESTABLISHING CONNECTION...'
-  ];
-
   const spinnerFrames = ["/", "-", "\\", "|"];
   const maxCharacters = 24;
   const unloadedCharacter = ".";
   const loadedCharacter = "#";
 
   useEffect(() => {
+    const loadingTexts = [
+      'SYSTEM INITIALIZATION...',
+      'LOADING COMPONENTS...',
+      'CONNECTING TO SERVER...',
+      'DOWNLOADING RESOURCES...',
+      'SYNCHRONIZING DATA...',
+      'CALIBRATING INTERFACE...',
+      'ACCESSING DATABASE...',
+      'LOADING ASSETS...',
+      'ESTABLISHING CONNECTION...'
+    ];
+
     const totalDuration = 4000; // 4 segundos total
     const updateInterval = 50; // Actualizar cada 50ms
     const totalSteps = totalDuration / updateInterval;
@@ -46,9 +46,9 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       currentStep++;
       
       // Calcular progreso con una pequeña variación para que se vea natural
-      let baseProgress = (currentStep / totalSteps) * 100;
-      let randomVariation = (Math.random() - 0.5) * 2; // ±1% de variación
-      let newProgress = Math.min(baseProgress + randomVariation, 100);
+      const baseProgress = (currentStep / totalSteps) * 100;
+      const randomVariation = (Math.random() - 0.5) * 2; // ±1% de variación
+      const newProgress = Math.min(baseProgress + randomVariation, 100);
       
       setProgress(newProgress);
 
@@ -98,7 +98,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       clearInterval(progressInterval);
       clearInterval(spinnerInterval);
     };
-  }, [onLoadComplete, loadingTexts, spinnerFrames.length]);
+  }, [onLoadComplete, spinnerFrames.length]);
 
   const renderLoadingBar = () => {
     const loadedCount = Math.floor((progress / 100) * maxCharacters);
